@@ -1,0 +1,63 @@
+#page-landing {
+  /* Define uma cor degrade para o fundo. Angulo do degrade, cor de origem, cor final. Não reinicia a cor do fundo quando ele acaba */
+  background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%) no-repeat;
+
+  text-align: center; /* Alinha o texto ao centro */
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center; /* Alinha os items no centro da div */
+}
+
+.location,
+h1,
+.visit p {
+  height: 16vh;
+}
+
+.visit a {
+  width: 8rem;  /* Tamanho em relação ao tamanho raiz */
+  height: 8rem; /* Tamanho em relação ao tamanho raiz */
+  background: #ffd666; /* Cor do fundo do botão */
+
+  border: none; /* Sem bordas */
+  border-radius: 3rem; /* Raio da borda */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: auto;
+
+  transition: background 200ms; /* Duração da mudança de cor do botão ao passar o mouse por cima*/
+}
+
+.visit a:hover {
+    background: #96feff; /* Cor do botão ao se passar o mouse por cima*/
+}
+
+#container {
+  margin: auto;
+  width: 90%;
+}
+
+#logo {
+  animation-delay: 50ms; /* Atraso no inicio da animação up */
+}
+
+#location {
+  animation-delay: 100ms; /* Atraso no inicio da animação up */
+}
+
+main h1 {
+  animation-delay: 150ms; /* Atraso no inicio da animação up */
+}
+
+.visit p {
+  animation-delay: 200ms; /* Atraso no inicio da animação up */
+}
+
+.visit a {
+  animation-delay: 250ms; /* Atraso no inicio da animação up */
+}

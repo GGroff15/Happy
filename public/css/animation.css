@@ -1,0 +1,18 @@
+/* Animações */
+@keyframes up { /* Sensação de movimentação de baixo para cima */
+    from {
+      opacity: 0;  /* Itens transparentes */
+      transform: translateY(16px); /* Posição inicial do item */
+    }
+  
+    to {
+      opacity: 1; /* Itens visiveis */
+      transform: translateY(0); /* Posição final do item */
+    }
+  }
+  
+  .animate-up {
+    animation-name: up; /* Nome da animação */
+    animation-duration: 300ms; /* Duração da animação, velocidade com que ela ocorre */
+    animation-fill-mode: backwards; /* Modo da animação */
+  }
