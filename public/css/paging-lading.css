@@ -17,7 +17,7 @@ h1,
 }
 
 .visit a {
-  width: 8rem;  /* Tamanho em relação ao tamanho raiz */
+  width: 8rem; /* Tamanho em relação ao tamanho raiz */
   height: 8rem; /* Tamanho em relação ao tamanho raiz */
   background: #ffd666; /* Cor do fundo do botão */
 
@@ -33,25 +33,26 @@ h1,
   transition: background 200ms; /* Duração da mudança de cor do botão ao passar o mouse por cima*/
 }
 
-.visit a:hover {
-    background: #96feff; /* Cor do botão ao se passar o mouse por cima*/
-}
-
-#container {
-  margin: auto;
-  width: 90%;
-}
-
 #logo {
   animation-delay: 50ms; /* Atraso no inicio da animação up */
 }
 
-#location {
+.location {
   animation-delay: 100ms; /* Atraso no inicio da animação up */
 }
 
 main h1 {
   animation-delay: 150ms; /* Atraso no inicio da animação up */
+  font-size: clamp(
+    4rem,
+    8vw,
+    8.4rem
+  ); /* tamanho minimo da fonte, tamanho preferencial da fonte, tamanho maximo da fonte */
+}
+
+#container {
+  margin: auto;
+  width: min(90%, 112rem);
 }
 
 .visit p {
@@ -59,5 +60,80 @@ main h1 {
 }
 
 .visit a {
+  width: 8rem; /* Tamanho em relação ao tamanho raiz */
+  height: 8rem; /* Tamanho em relação ao tamanho raiz */
+  background: #ffd666; /* Cor do fundo do botão */
+
+  border: none; /* Sem bordas */
+  border-radius: 3rem; /* Raio da borda */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: auto;
+
+  transition: background 200ms; /* Duração da mudança de cor do botão ao passar o mouse por cima*/
+
   animation-delay: 250ms; /* Atraso no inicio da animação up */
+}
+
+.visit a:hover {
+  background: #96feff; /* Cor do botão ao se passar o mouse por cima*/
+}
+
+/* desktop version */
+@media (min-width: 760px) {
+  #container {
+    padding: 5rem 2rem;
+    background: url("../images/bg.svg") no-repeat;
+    background-position: 80%;
+    background-size: clamp(30rem, 54vw, 56rem);
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .location,
+  h1,
+  .visit p {
+    height: initial;
+    text-align: left;
+  }
+
+  .location {
+    text-align: right;
+    font-size: 2.4rem;
+    line-height: 1.5;
+  }
+
+  main h1 {
+    font-weight: bold;
+    line-height: 0.88;
+
+    margin: clamp(10%, 9vh, 12%) 0 4rem; /* Tamanho minimo, tamanho ideia, tamanho maximo */
+
+    width: min(
+      300px,
+      80%
+    ); /* Tamanho "maximo" se a tela tiver mais de 300px de espaço, tamanho maximo se tiver menos de 300px de espaço */
+  }
+
+  .visit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .visit a {
+    margin: initial;
+  }
+
+  .visit p {
+    font-size: 2.4rem;
+    line-height: 1.5;
+    width: clamp(20rem, 20vw, 30rem);
+  }
 }
