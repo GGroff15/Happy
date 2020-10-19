@@ -7,7 +7,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
 
 //Cria marcador customizado
 const icon = L.icon({
-    iconUrl: "./public/images/map-marker.svg", //Localização da imagem que será o novo icone
+    iconUrl: "/images/map-marker.svg", //Localização da imagem que será o novo icone
     iconSize: [58, 68],                        //Tamanho do icone
     iconAncher: [29, 68]
 })
@@ -75,4 +75,4 @@ function toggleSelect(event) {
     const input = document.querySelector('[name="open_on_weekends"]');
     // verificar se sim ou não
     input.value = button.dataset.value;
-}
+};

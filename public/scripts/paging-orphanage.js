@@ -6,8 +6,12 @@ const options = {
     zoomControl: false
 }
 
+// Pega os valores do HTML
+const lat = document.querySelector('span[data-lat]').dataset.lat;
+const lng = document.querySelector('span[data-lng]').dataset.lng;
+
 //Cria mapa.
-const map = L.map('mapid', options).setView([-23.5308492,-46.7846366], 13);
+const map = L.map('mapid', options).setView([lat,lng], 15);
 
 //Cria camada no mapa
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
@@ -15,7 +19,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
 
 //Cria marcador customizado
 const icon = L.icon({
-    iconUrl: "./public/images/map-marker.svg", //Localização da imagem que será o novo icone
+    iconUrl: "/images/map-marker.svg", //Localização da imagem que será o novo icone
     iconSize: [58, 68],                        //Tamanho do icone
     iconAncher: [29, 68],
     popupAnchor: [170,2]
@@ -27,11 +31,11 @@ const popup = L.popup({
     className: 'map-popup',                 //Nome
     minWidth: 240,                          //Largura minima
     minHeight: 240                          //Altura minima
-}).setContent('Lar das Meninas <a href="orphanage.html?id=1" class="choose-orphanage"> <img src="./public/images/arrow-white.svg" </a>');
+}).setContent('Lar das Meninas <a href="/orphanage?id=1" class="choose-orphanage"> <img src="/images/arrow-white.svg" </a>');
 
 //Adiciona um marcador ao mapa
-L.marker([-23.5308492,-46.7846366], {icon}).addTo(map)
-    .bindPopup(popup)
+L.marker([lat,lng], {icon})
+.addTo(map)
 
 //Galeria de imagens
 function selectImage(event) {

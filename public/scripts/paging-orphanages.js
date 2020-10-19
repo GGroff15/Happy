@@ -7,21 +7,34 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
 
 //Cria marcador customizado
 const icon = L.icon({
-    iconUrl: "./public/images/map-marker.svg", //Localização da imagem que será o novo icone
+    iconUrl: "/images/map-marker.svg", //Localização da imagem que será o novo icone
     iconSize: [58, 68],                        //Tamanho do icone
     iconAncher: [29, 68],
     popupAnchor: [170,2]
 })
 
-//Cria popup
-const popup = L.popup({
-    closeButton: false,                     //Desabilita o botão de fechar
-    className: 'map-popup',                 //Nome
-    minWidth: 240,                          //Largura minima
-    minHeight: 240                          //Altura minima
-}).setContent('Lar das Meninas <a href="orphanage.html?id=1" class="choose-orphanage"> <img src="./public/images/arrow-white.svg" </a>');
-
-//Adiciona um marcador ao mapa
-L.marker([-23.5308492,-46.7846366], {icon}).addTo(map)
-    .bindPopup(popup)
+function addMarker({id, name, lat, lng}) {
+    //Cria popup
+    const popup = L.popup({
+        closeButton: false,                     //Desabilita o botão de fechar
+        className: 'map-popup',                 //Nome
+        minWidth: 240,                          //Largura minima
+        minHeight: 240                          //Altura minima
+    }).setContent(`${name} <a href="/orphanage?id=${id}"> <img src="/images/arrow-white.svg" </a>`);  //Usar craze para poder substituir partes do texto por variaveis
     
+    //Adiciona um marcador ao mapa
+    L.marker([lat, lng], {icon}).addTo(map)
+        .bindPopup(popup)
+      
+}
+
+const orphanageSpan = document.querySelectorAll('.orphanages span')
+orphanageSpan.forEach( orphanageElement => {
+    const orphanage = {
+        id: orphanageElement.dataset.id,
+        name: orphanageElement.dataset.name,
+        lat: orphanageElement.dataset.lat,
+        lng: orphanageElement.dataset.lng
+    }
+    addMarker(orphanage)
+})

@@ -11,7 +11,9 @@
     align-items: center;
     justify-content: center;
 
-    transition: color 200ms
+    transition: color 200ms;
+
+    text-decoration: none;
 }
 
 .primary-button:hover {
